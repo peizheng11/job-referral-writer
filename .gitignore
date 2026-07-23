@@ -1,0 +1,19 @@
+# Private candidate materials
+private/*
+!private/README.md
+
+# Personal documents
+*.pdf
+*.docx
+*.numbers
+*.pages
+
+# Local candidate files
+candidate-evidence.local.md
+portfolio-notes.local.md
+career-stories.local.md
+
+# Environment and system files
+.env
+.env.*
+.DS_Store
