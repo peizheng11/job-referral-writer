@@ -5,9 +5,10 @@ This folder is intended for local candidate information.
 Recommended local files:
 
 - `candidate-evidence.md`
-- `resume.pdf`
 - `portfolio-notes.md`
 - `career-stories.md`
+- `resumes/_index.md`
+- `resumes/<one file per résumé variant>`
 
 These files are ignored by Git and must not be committed.
 

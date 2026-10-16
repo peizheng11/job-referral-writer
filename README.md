@@ -8,7 +8,8 @@ The skill supports:
 * LinkedIn inbox messages
 * Slack and other professional direct messages
 * Job-description-to-résumé matching
-* Evidence retrieval beyond a candidate’s most visible experience
+* Tailoring résumé content to a specific JD, drawing on the candidate's full set of past résumé variants
+* Evidence retrieval beyond a candidate’s most visible experience or most-used résumé version
 * Privacy-conscious use of local candidate materials
 
 Why this skill exists
@@ -51,6 +52,9 @@ referral-outreach-writer/
 ├── .gitignore
 ├── references/
 │   ├── candidate-evidence-template.md
+│   ├── career-stories-template.md
+│   ├── portfolio-notes-template.md
+│   ├── resume-variants-index-template.md
 │   ├── jd-signal-map.md
 │   └── writing-guidelines.md
 ├── examples/
@@ -64,11 +68,29 @@ After local setup, the ignored private/ directory may also contain:
 private/
 ├── README.md
 ├── candidate-evidence.md
-├── resume.pdf
 ├── portfolio-notes.md
-└── career-stories.md
+├── career-stories.md
+└── resumes/
+    ├── _index.md
+    └── <one file per résumé variant — PDF, DOCX, or HTML>
 
 Only private/README.md should be committed. The other files should remain local.
+
+### Résumé variants
+
+Most candidates accumulate many résumé versions over time, each
+tailored to a different application, with different emphasis or
+phrasing. Rather than treating one file as "the" résumé, this skill
+treats `private/resumes/` as a small evidence database: every
+variant is a legitimate source of bullets, and the strongest match
+for a given JD may live in a variant that hasn't been used in years.
+
+`private/resumes/_index.md` is the lookup table the skill scans
+first — one line per variant with its filename, target role/company
+(if known), and distinguishing angle — so it can shortlist a few
+variants to read in full instead of opening every file for every
+request. Copy `references/resume-variants-index-template.md` to get
+started, and keep it updated as you add or retire variants.
 
 How the skill works
 
@@ -161,6 +183,10 @@ Use portfolio-notes.md to record:
 * Publicly shareable project summaries
 * Relevant job-description signals
 * Confidential details that should not be used
+
+A starter scaffold is available at references/career-stories-template.md — copy it the same way:
+
+cp references/career-stories-template.md private/career-stories.md
 
 Use career-stories.md to record experiences that may not be fully represented in the résumé, such as:
 
